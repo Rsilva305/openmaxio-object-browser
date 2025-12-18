@@ -11,7 +11,7 @@ RUN cd web-app && git checkout v1.7.6 && yarn install && yarn build
 
 
 # ---------- go build stage ----------
-FROM golang:1.22-alpine AS gobuilder
+FROM golang:1.23-alpine AS gobuilder
 
 RUN apk add --no-cache git make
 
