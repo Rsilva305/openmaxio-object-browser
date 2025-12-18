@@ -17,6 +17,7 @@ RUN apk add --no-cache git make
 
 WORKDIR /src
 RUN git clone https://github.com/OpenMaxIO/openmaxio-object-browser.git .
+RUN git checkout v1.7.6
 
 # copy built web assets from previous stage
 COPY --from=webbuilder /src/web-app/build /src/web-app/build
