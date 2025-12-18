@@ -1,6 +1,10 @@
 # ---------- build stage ----------
 FROM golang:1.22-alpine AS builder
-RUN apk add --no-cache git make nodejs yarn
+
+RUN apk add --no-cache git make nodejs
+
+# Enable Corepack + correct Yarn version
+RUN corepack enable && corepack prepare yarn@4.4.0 --activate
 
 WORKDIR /src
 RUN git clone https://github.com/OpenMaxIO/openmaxio-object-browser.git .
